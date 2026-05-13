@@ -1,6 +1,6 @@
 # Guizang PPT Skill · 网页 PPT / 配图 / 封面
 
-> 🌏 **English version: [README.en.md](./README.en.md)**
+> 🌏 **English: [README.en.md](./README.en.md)** · **繁體中文: [README.zh-TW.md](./README.zh-TW.md)**
 
 一个适配 Claude Code / Codex 等 Agent 环境的网页 PPT 技能,用于生成**单文件 HTML 横向翻页 PPT**、PPT 配图和多平台封面。
 
@@ -29,6 +29,7 @@
 - 🖼 **Codex 可选配图流程**:可用 GPT-Image 2.0 / GPT-M 2.0 生成纪实照片、信息图、流程图、系统关系图、UI 情景图,并按模板比例插入
 - 📰 **多平台封面**:可用同一套视觉规则生成公众号 21:9、公众号分享卡 1:1、小红书 3:4、视频号横版等封面
 - 📴 **低性能静态模式**:按 `B` 可关闭 WebGL / canvas 动画,让动态内容退回静态背景
+- 🌏 **繁简双字体**:默认繁体中文(TC)字体,Agent 检测到简体输入自动切换为 SC 字体
 - 📄 **单文件 HTML**:不需要构建、不需要服务器,浏览器直接打开
 
 ## 适合 / 不适合
@@ -62,6 +63,12 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
 git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
 ```
 
+## 繁简中文支持
+
+模板内置繁简双字体支持。**默认繁体中文(TC)**，加载 Noto Sans/Serif TC 及系统对应字体(PingFang TC / Microsoft JhengHei)。若输入为简体中文，Agent 会自动在 `<html>` 上加 `class="sc"` 并改 `lang="zh-CN"`，切换为 SC 字体(Noto Sans/Serif SC / PingFang SC / Microsoft YaHei)。
+
+两种风格(Style A/B)的模板均支持此机制。
+
 ### 触发方式
 
 装好后,Claude Code 会在对话里自动发现并调用这个 skill。触发关键词:
@@ -73,6 +80,11 @@ git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guiza
 - "electronic ink 风格演讲 slides"
 - "基于这篇文章做一张公众号 21:9 封面"
 - "基于这份 PPT 生成一张 1:1 分享卡"
+- "帮我生成一张 Facebook 1.91:1 封面"
+- "做一张 Instagram 直式 Reels 封面"
+- "帮我把这篇文章做成 LINE 官方账号封面"
+- "生成 YouTube 缩图"
+- "帮我生成 LinkedIn 横幅"
 
 ## 使用流程
 
@@ -127,12 +139,22 @@ node scripts/validate-swiss-deck.mjs path/to/index.html
 
 ## 封面生成
 
-这个 Skill 也可以基于文章或 PPT 核心观点生成平台封面。典型规格:
+这个 Skill 也可以基于文章或 PPT 核心观点生成平台封面。支持以下规格(包含中国及台湾常用平台):
 
-- **公众号头图**:21:9,主标题优先,右侧或边缘保留视觉锚点
-- **公众号分享卡**:1:1,与头图共用主题色、关键词和视觉元素
-- **小红书封面 / 轮播**:3:4,大标题优先,多张时统一字号和视觉节奏
-- **视频号 / 横版封面**:16:9,适合标题 + 副标题 + 单一视觉焦点
+| 平台 | 比例 | 说明 |
+|------|------|------|
+| **公众号头图** | 21:9 | 主标题优先,右侧或边缘保留视觉锚点 |
+| **公众号分享卡** | 1:1 | 与头图共用主题色、关键词和视觉元素 |
+| **小红书封面 / 轮播** | 3:4 | 大标题优先,多张时统一字号和视觉节奏 |
+| **视频号 / 横版封面** | 16:9 | 标题 + 副标题 + 单一视觉焦点 |
+| **Facebook 封面/贴文** | 1.91:1 | 大标题置左或置中,适合动态墙 |
+| **Facebook 分享卡** | 1:1 | 干净大字 + 视觉锚点 |
+| **Instagram 贴文** | 1:1 | 正方形,图文整合 |
+| **Instagram Reels** | 9:16 | 满版直式,大标题 + 强烈视觉焦点 |
+| **Instagram 轮播** | 4:5 | 多张时统一字号色调 |
+| **LINE 官方账号封面** | 16:9 | 品牌色 + 一句话定位 |
+| **LinkedIn 横幅** | 4:1 | 极宽版,标题 + 品牌名 |
+| **YouTube 缩图** | 16:9 | 标题 + 副标题,字要大 |
 
 封面原则和 PPT 一样:只用少量关键词,视觉重心落在大标题上,不要把正文堆满。
 
@@ -141,7 +163,9 @@ node scripts/validate-swiss-deck.mjs path/to/index.html
 ```
 guizang-ppt-skill/
 ├── SKILL.md              ← Skill 主文件:工作流、原则、常见错误
-├── README.md             ← 本文件
+├── README.md             ← 本文件(简体中文)
+├── README.en.md          ← 英文版
+├── README.zh-TW.md       ← 繁體中文版
 ├── assets/
 │   ├── template.html         ← Style A 电子杂志风模板
 │   └── template-swiss.html   ← Style B 瑞士国际主义模板

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW"><!-- 简体中文: 改 lang="zh-CN" 并在 <html> 上加 class="sc" -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>[必填] 替换为 PPT 标题 · Deck Title</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     /* ============ 主题色(默认:🖋 墨水经典) ============
@@ -20,13 +20,19 @@
     --paper-tint:#e8e5de;
     --ink-tint:#18181a;
 
-    /* ============ 字体(跨主题固定) ============ */
+    /* ============ 字体(跨主题固定) ============
+        TC(繁体)为默认; SC(简体)请在 <html> 上加 class="sc" */
     --mono:"IBM Plex Mono",ui-monospace,monospace;
     --serif-en:"Playfair Display","Source Serif 4",Georgia,serif;
     --serif-body-en:"Source Serif 4",Georgia,serif;
-    --serif-zh:"Noto Serif SC",source-han-serif-sc,serif;
-    --sans-zh:"Noto Sans SC",source-han-sans-sc,sans-serif;
+    --serif-zh-tc:"Noto Serif TC","Source Han Serif TC",serif;
+    --sans-zh-tc:"Noto Sans TC","Source Han Sans TC",sans-serif;
+    --serif-zh-sc:"Noto Serif SC","Source Han Serif SC",serif;
+    --sans-zh-sc:"Noto Sans SC","Source Han Sans SC",sans-serif;
+    --serif-zh:var(--serif-zh-tc);
+    --sans-zh:var(--sans-zh-tc);
   }
+  html.sc{--serif-zh:var(--serif-zh-sc);--sans-zh:var(--sans-zh-sc)}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--sans-zh);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 

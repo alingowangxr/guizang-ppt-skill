@@ -7,6 +7,8 @@ It ships with two visual systems:
 - **Style A: editorial magazine × electronic ink**. Picture *Monocle* with code stitched in. Best for narrative talks, opinions, salons, and personal voice.
 - **Style B: Swiss International Typographic Style**. Grid-first, one high-saturation anchor color, sharp rectangles, hairline rules, and extreme type contrast. Best for facts, products, analysis, and frameworks.
 
+> 🌏 **简体中文: [README.md](./README.md)** · **繁體中文: [README.zh-TW.md](./README.zh-TW.md)**
+>
 > Distilled by [Guizang](https://x.com/op7418) from offline talks like "One-Person Company: Organizations Folded by AI" and "A New Way of Working." Every pitfall hit during those decks is logged in `checklist.md`.
 
 **Old Theme · Style A Editorial Magazine**
@@ -27,6 +29,7 @@ It ships with two visual systems:
 - 🖼 **Optional Codex image flow**: generate documentary photos, infographics, flow diagrams, system maps, and UI scenes with GPT-Image 2.0 / GPT-M 2.0, then insert them at template-safe ratios
 - 📰 **Social covers**: generate 21:9 WeChat cover images, 1:1 share cards, 3:4 Xiaohongshu covers, video thumbnails, and related variants
 - 📴 **Low-power static mode**: press `B` to turn WebGL / canvas animation into static visuals
+- 🌏 **Dual Chinese fonts**: Traditional Chinese (TC) font stack by default; agent auto-switches to Simplified Chinese (SC) when input is detected as SC
 - 📄 **Single HTML file** — no build, no server, open directly in the browser
 
 ## Fits / Doesn't fit
@@ -60,6 +63,12 @@ Paste the block above into Claude Code / Cursor / any AI agent with shell access
 git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
 ```
 
+## Chinese Language Support
+
+Both templates ship with dual Chinese font stacks — **Traditional Chinese (TC) by default** (Noto Sans/Serif TC, PingFang TC, Microsoft JhengHei). When the user's input is Simplified Chinese, the agent auto-adds `class="sc"` to `<html>` and changes `lang="zh-CN"`, switching to the SC font stack (Noto Sans/Serif SC, PingFang SC, Microsoft YaHei).
+
+This works for both Style A and Style B templates.
+
 ### How to trigger it
 
 Once installed, Claude Code auto-detects the skill. Trigger phrases:
@@ -71,6 +80,11 @@ Once installed, Claude Code auto-detects the skill. Trigger phrases:
 - "Electronic ink slides for my talk"
 - "Create a 21:9 WeChat cover from this article"
 - "Create a 1:1 share card from this deck"
+- "Generate a Facebook 1.91:1 cover"
+- "Create an Instagram Reels vertical cover"
+- "Turn this article into a LINE cover"
+- "Generate a YouTube thumbnail"
+- "Create a LinkedIn banner"
 
 ## Workflow
 
@@ -125,12 +139,22 @@ Image prompts live in [`references/image-prompts.md`](./references/image-prompts
 
 ## Cover Generation
 
-The skill can also turn an article or deck idea into platform covers:
+The skill can also turn an article or deck idea into platform covers. Supported formats include:
 
-- **WeChat main cover**: 21:9, headline-first, with one visual anchor
-- **WeChat share card**: 1:1, visually paired with the 21:9 cover
-- **Xiaohongshu cover / carousel**: 3:4, large title, consistent type scale across a batch
-- **Video thumbnail**: 16:9, title + subtitle + one focal visual
+| Platform | Ratio | Notes |
+|----------|-------|-------|
+| **WeChat main cover** | 21:9 | headline-first, visual anchor on the right |
+| **WeChat share card** | 1:1 | visually paired with the 21:9 cover |
+| **Xiaohongshu cover / carousel** | 3:4 | large title, consistent scale across a batch |
+| **Video thumbnail** | 16:9 | title + subtitle + one focal visual |
+| **Facebook cover / post** | 1.91:1 | headline-left or center, feed-friendly |
+| **Facebook share card** | 1:1 | big type + one anchor |
+| **Instagram post** | 1:1 | square, integrated text + image |
+| **Instagram Reels / Story** | 9:16 | full vertical, bold title |
+| **Instagram carousel** | 4:5 | consistent type and tone across slides |
+| **LINE Official Account cover** | 16:9 | brand color + one-liner |
+| **LinkedIn banner** | 4:1 | ultra-wide, title + brand |
+| **YouTube thumbnail** | 16:9 | large title + subtitle, high contrast |
 
 The same rule applies: use a few strong keywords, keep the title as the visual center, and do not fill the canvas with body copy.
 
