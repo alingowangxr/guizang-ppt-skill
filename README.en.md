@@ -43,7 +43,7 @@ It ships with two visual systems:
 ### Option 1: One-line install (recommended)
 
 ```bash
-npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill
+npx skills add https://github.com/alingowangxr/guizang-ppt-skill --skill guizang-ppt-skill
 ```
 
 ### Option 2: Paste this to an AI
@@ -51,7 +51,7 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
 > Install the `guizang-ppt-skill` Claude Code skill for me. Steps:
 >
 > 1. Make sure `~/.claude/skills/` exists (create if not)
-> 2. Run `git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill`
+> 2. Run `git clone https://github.com/alingowangxr/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill`
 > 3. Verify: `ls ~/.claude/skills/guizang-ppt-skill/` should show `SKILL.md`, `assets/`, `references/`
 > 4. Tell me when done. Later, saying things like "make me a magazine-style deck" will trigger this skill.
 
@@ -60,7 +60,7 @@ Paste the block above into Claude Code / Cursor / any AI agent with shell access
 ### Option 3: Manual CLI
 
 ```bash
-git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
+git clone https://github.com/alingowangxr/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
 ```
 
 ## Chinese Language Support

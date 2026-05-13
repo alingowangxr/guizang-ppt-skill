@@ -43,7 +43,7 @@
 ### 方式一:一行命令安裝(推薦)
 
 ```bash
-npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill
+npx skills add https://github.com/alingowangxr/guizang-ppt-skill --skill guizang-ppt-skill
 ```
 
 ### 方式二:把下面這段話直接發給 AI
@@ -51,7 +51,7 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
 > 幫我安裝 `guizang-ppt-skill` 這個 Claude Code skill。請按下面步驟做:
 >
 > 1. 確保 `~/.claude/skills/` 目錄存在(不存在就創建)
-> 2. 執行 `git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill`
+> 2. 執行 `git clone https://github.com/alingowangxr/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill`
 > 3. 驗證:`ls ~/.claude/skills/guizang-ppt-skill/` 應該看到 `SKILL.md`、`assets/`、`references/` 三項
 > 4. 告訴我安裝好了,之後我說"做一份雜誌風 PPT"之類的話就會觸發這個 skill
 
@@ -60,7 +60,7 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
 ### 方式三:手動命令行
 
 ```bash
-git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
+git clone https://github.com/alingowangxr/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
 ```
 
 ## 繁簡中文支援
